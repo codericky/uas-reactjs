@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Belajar Reactjs</title>
+        <script  src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script  src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script  src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="nama"></div>
+
+        <script type="text/babel">
+        class Hello extends React.Component {
+          constructor(props){
+          super(props);
+          this.state = {
+            Nim: 12345,
+            Nama:"Hendi",
+            Semester: "II",
+            Jurusan: "IT",
+          };
+      }
+
+          changeNama = () => {
+            this.setState({Nama: "Testing Nama" + " "});
+          }
+          changeSemester = () => {
+            this.setState({Jurusan:"MULTIMEDIA"});
+          }
+            render() {
+                return  (
+                <div>
+                <p>NIM {this.state.Nim}</p>  
+                <p>NAMA {this.state.Nama}</p>
+                <p>SEMESTER {this.state.Semester}</p>
+                <p>JURUSAN {this.state.Jurusan}.</p>
+                <button type="button" onClick={this.changeNama}>Change Nama </button>  &nbsp;
+                <button type="button" onClick={this.changeSemester}>Change Jurusan </button>
+                </div>
+                );
+            }
+        }
+        ReactDOM.render(<Hello />, document.getElementById("nama"));
+        </script>
+    </body>
+</html>
