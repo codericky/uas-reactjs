@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>getDerivedStateFromProps ReactJs</title>
+        <script  src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script  src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script  src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script type="text/babel">
+        class App extends React.Component {
+  
+        render() {
+        
+            return (
+            <div>
+            <Second name = "RICKY NOVIANSYAH"></Second>
+            </div>
+            )
+        }
+     }
+        class Second extends React.Component {
+            
+        constructor(props){
+        super(props);
+        this.state = {
+        name: "RICKY"
+        };
+    }
+    static getDerivedStateFromProps(props, state) {
+        if(props.name !== state.name){
+            //Change in props
+            return{
+                name: props.name
+            };
+        }
+        return null; 
+    }
+               render() {
+                return  (
+                <div>
+                <div> My name <h3>{this.state.name }</h3></div>
+                </div>
+                );
+            }
+        }
+        ReactDOM.render(<App  />, document.getElementById("root"));
+        </script>
+    </body>
+</html>
